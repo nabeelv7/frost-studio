@@ -1,5 +1,6 @@
 import { Geist } from "next/font/google";
 import "./globals.css";
+import SidebarTables from "@/components/SidebarTables";
 
 const geist = Geist({
   subsets: ["latin"],
@@ -13,7 +14,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${geist.className} antialiased`}>{children}</body>
+      <body className={`${geist.className} antialiased dark`}>
+        <div className="flex">
+          <SidebarTables />
+          <div className="w-4/5 min-h-screen">{children}</div>
+        </div>
+      </body>
     </html>
   );
 }
